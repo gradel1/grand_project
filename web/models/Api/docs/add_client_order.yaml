@@ -1,0 +1,37 @@
+"/api/add_client_order":
+  post:
+    tags:
+      - Order
+    summary: Adding a sales order
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              worker_id:
+                type: integer
+              food_id:
+                type: integer
+              food_amount:
+                type: integer
+              formation_date:
+                type: timestamp
+              givig_date:
+                type: timestamp
+              status:
+                type: string
+            example:
+              worker_id: 1
+              food_id: 1
+              food_amount: 2
+              formation_date: 2024-03-04T10:11:31.718Z
+              givig_date: 2024-03-04T10:11:31.718Z
+              status: In Progress
+    responses:
+      "201":
+        $ref: "#/components/responses/201Success"
+      "404":
+        $ref: "#/components/responses/404NotCorrectData"
+      "500":
+        $ref: "#/components/responses/500InternalError"
